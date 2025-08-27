@@ -19,7 +19,7 @@ def main():
     fabric.lang_buffer = forge.lang_buffer = common.lang_buffer
 
     for rm in each:
-        utils.clean_generated_resources('/'.join(rm.resource_dir))
+        utils.clean_generated_resources('/'.join(rm.resource_dir), [])
 
     do_assets(common)
     do_advancements(common)
@@ -212,11 +212,12 @@ def do_tags(forge: ResourceManager, fabric: ResourceManager, common: ResourceMan
     common.block_tag('needs_with_flint_tool')
     common.block_tag('mineable_with_mattock', '#minecraft:mineable/shovel', '#minecraft:mineable/hoe', '#minecraft:mineable/axe')
     common.block_tag('mineable', '#notreepunching:mineable_with_mattock', '#minecraft:mineable/pickaxe', '#minecraft:mineable/shovel', '#minecraft:mineable/hoe', '#minecraft:mineable/axe', '#minecraft:sword_efficient')
+    common.block_tag('knife_harvestable', '#minecraft:sword_efficient', 'minecraft:grass', 'minecraft:tall_grass', 'minecraft:fern', 'minecraft:large_fern', 'minecraft:dead_bush', '#minecraft:saplings', '#minecraft:small_flowers', '#minecraft:tall_flowers', 'minecraft:vine', 'minecraft:seagrass', 'minecraft:kelp', 'minecraft:kelp_plant', 'minecraft:sugar_cane', 'minecraft:cactus')
     common.item_tag('pickaxe_tools')
     common.item_tag('axe_tools', '#notreepunching:mattocks')
     common.item_tag('shovel_tools', '#notreepunching:mattocks')
     common.item_tag('hoe_tools', '#notreepunching:mattocks')
-    common.item_tag('sharp_tools')
+    common.item_tag('sharp_tools', '#notreepunching:knives')
 
     common.block('minecraft:gravel').with_tag('always_breakable').with_tag('always_drops')
 
@@ -408,12 +409,15 @@ def do_loot_tables(common: ResourceManager):
     }, {
         'name': 'notreepunching:plant_fiber',
         'conditions': [
-            loot_tables.match_tag('notreepunching:knives'),
+            loot_tables.match_tag('notreepunching:sharp_tools'),
             loot_tables.random_chance(0.25)
         ]
     }, {
         'name': 'minecraft:wheat_seeds',
-        'conditions': loot_tables.random_chance(0.125),
+        'conditions': [
+            loot_tables.match_tag('notreepunching:sharp_tools'),
+            loot_tables.random_chance(0.125)
+        ],
         'functions': [
             loot_tables.fortune_bonus(2),
             'minecraft:explosion_decay'
@@ -425,12 +429,13 @@ def do_loot_tables(common: ResourceManager):
      }, {
          'name': 'notreepunching:plant_fiber',
          'conditions': [
-             loot_tables.match_tag('notreepunching:knives'),
+             loot_tables.match_tag('notreepunching:sharp_tools'),
              loot_tables.random_chance(0.25)
          ]
      }, {
          'name': 'minecraft:wheat_seeds',
          'conditions': [
+             loot_tables.match_tag('notreepunching:sharp_tools'),
              loot_tables.survives_explosion(),
              loot_tables.block_state_property('minecraft:tall_grass[half=lower]'),
              loot_tables.random_chance(0.125)

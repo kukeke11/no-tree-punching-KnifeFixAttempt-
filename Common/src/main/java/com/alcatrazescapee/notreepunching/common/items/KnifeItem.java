@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 import com.alcatrazescapee.notreepunching.Config;
+import com.alcatrazescapee.notreepunching.common.ModTags;
 import com.alcatrazescapee.notreepunching.platform.Platform;
 import com.alcatrazescapee.notreepunching.platform.PlatformOverride;
 
@@ -40,6 +41,22 @@ public class KnifeItem extends SwordItem
             stack.hurtAndBreak(1, entity, entityIn -> entityIn.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         }
         return true;
+    }
+
+    @Override
+    public boolean isCorrectToolForDrops(ItemStack stack, BlockState state)
+    {
+        return state.is(ModTags.Blocks.KNIFE_HARVESTABLE) || super.isCorrectToolForDrops(stack, state);
+    }
+
+    @Override
+    public float getDestroySpeed(ItemStack stack, BlockState state)
+    {
+        if (state.is(ModTags.Blocks.KNIFE_HARVESTABLE))
+        {
+            return 2.0F;
+        }
+        return super.getDestroySpeed(stack, state);
     }
 
     @Override

@@ -45,6 +45,7 @@ public final class ModTags
         public static final TagKey<Block> MINEABLE = create("mineable");
         public static final TagKey<Block> MINEABLE_WITH_MATTOCK = create("mineable_with_mattock");
         public static final TagKey<Block> NEEDS_FLINT_TOOL = create("needs_flint_tool");
+        public static final TagKey<Block> KNIFE_HARVESTABLE = create("knife_harvestable");
 
         private static TagKey<Block> create(String id)
         {

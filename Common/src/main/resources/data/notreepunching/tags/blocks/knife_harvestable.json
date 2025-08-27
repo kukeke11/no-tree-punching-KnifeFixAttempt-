@@ -1,0 +1,21 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "replace": false,
+  "values": [
+    "#minecraft:sword_efficient",
+    "minecraft:grass",
+    "minecraft:tall_grass",
+    "minecraft:fern",
+    "minecraft:large_fern",
+    "minecraft:dead_bush",
+    "#minecraft:saplings",
+    "#minecraft:small_flowers",
+    "#minecraft:tall_flowers",
+    "minecraft:vine",
+    "minecraft:seagrass",
+    "minecraft:kelp",
+    "minecraft:kelp_plant",
+    "minecraft:sugar_cane",
+    "minecraft:cactus"
+  ]
+}
