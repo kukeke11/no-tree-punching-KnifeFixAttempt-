@@ -28,7 +28,7 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "tag": "notreepunching:knives"
+                    "tag": "notreepunching:sharp_tools"
                   }
                 },
                 {
@@ -41,6 +41,12 @@
               "type": "minecraft:item",
               "name": "minecraft:wheat_seeds",
               "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "tag": "notreepunching:sharp_tools"
+                  }
+                },
                 {
                   "condition": "minecraft:survives_explosion"
                 },
