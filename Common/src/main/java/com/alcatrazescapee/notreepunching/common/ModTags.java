@@ -46,6 +46,8 @@ public final class ModTags
         public static final TagKey<Block> MINEABLE_WITH_MATTOCK = create("mineable_with_mattock");
         public static final TagKey<Block> NEEDS_FLINT_TOOL = create("needs_flint_tool");
 
+        public static final TagKey<Block> PLANT_FIBER_SOURCES = create("plant_fiber_sources");
+
         private static TagKey<Block> create(String id)
         {
             return TagKey.create(BuiltInRegistries.BLOCK.key(), Helpers.identifier(id));
