@@ -41,6 +41,8 @@ public final class ModTags
         public static final TagKey<Block> ALWAYS_DROPS = create("always_drops");
 
         public static final TagKey<Block> LOOSE_ROCK_PLACEABLE_ON = create("loose_rock_placeable_on");
+        
+        public static final TagKey<Block> PLANT_FIBER_SOURCES = create("plant_fiber_sources");
 
         public static final TagKey<Block> MINEABLE = create("mineable");
         public static final TagKey<Block> MINEABLE_WITH_MATTOCK = create("mineable_with_mattock");
